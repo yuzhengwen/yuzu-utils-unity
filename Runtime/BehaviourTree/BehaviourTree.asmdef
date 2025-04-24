@@ -1,0 +1,17 @@
+{
+    "name": "BehaviourTree",
+    "rootNamespace": "YuzuValen.Utils.BehaviourTree",
+    "references": [
+        "GUID:43cd5914095bae241b8527cd66846c4c",
+        "GUID:46d5a38d06c54a34982dd8621a094600"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

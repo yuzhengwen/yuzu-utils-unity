@@ -1,0 +1,17 @@
+{
+  "name": "com.yuzuval.utils",
+  "version": "1.0.0",
+  "displayName": "YuzuUtils",
+  "unity": "2022.3",
+  "keywords": [
+    "Utilities"
+  ],
+  "dependencies": {
+  },
+  "author": {
+    "name": "Yuzhengwen",
+    "email": "yuzhengwen0217@gmail.com",
+    "url": "https://www.yuzhengwen.github.com"
+  },
+  "description": "Utility Scripts and Tools for Unity"
+}
