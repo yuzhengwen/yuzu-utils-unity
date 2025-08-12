@@ -6,6 +6,7 @@ namespace YuzuValen.Utils
         where T : Component
     {
         private static T _instance;
+
         public static T Instance
         {
             get
@@ -19,6 +20,7 @@ namespace YuzuValen.Utils
                     {
                         UnityEngine.Debug.LogError("There is more than one " + typeof(T).Name + " in the scene.");
                     }
+
                     if (_instance == null)
                     {
                         GameObject obj = new GameObject();
@@ -26,6 +28,7 @@ namespace YuzuValen.Utils
                         _instance = obj.AddComponent<T>();
                     }
                 }
+
                 return _instance;
             }
         }

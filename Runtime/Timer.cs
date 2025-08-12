@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace YuzuValen.Utils
+namespace YuzuValen.Utils.TimeUtils
 {
     public class Timer
     {

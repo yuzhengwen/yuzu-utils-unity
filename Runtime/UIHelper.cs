@@ -1,6 +1,8 @@
-﻿using UnityEngine.UIElements;
+﻿using PrimeTween;
+using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace YuzuValen.Utils
+namespace YuzuValen.DragonInBloom
 {
     public static class UIHelper
     {
@@ -25,15 +27,17 @@ namespace YuzuValen.Utils
                     element.style.display = DisplayStyle.None;
             }
         }
+
         private static void FadeOut(VisualElement element)
         {
-            // Tween.Custom(1, 0, .3f, (value) => element.style.opacity = value)
-            //     .OnComplete(() => element.style.display = DisplayStyle.None);
+            Tween.Custom(1, 0, .3f, useUnscaledTime: true, onValueChange: (value) => element.style.opacity = value)
+                .OnComplete(() => element.style.display = DisplayStyle.None);
         }
+
         private static void FadeIn(VisualElement element)
         {
-            // element.style.display = DisplayStyle.Flex;
-            // Tween.Custom(0, 1, .3f, (value) => element.style.opacity = value);
+            element.style.display = DisplayStyle.Flex;
+            Tween.Custom(0, 1, .3f, useUnscaledTime: true, onValueChange: (value) => element.style.opacity = value);
         }
     }
 }
