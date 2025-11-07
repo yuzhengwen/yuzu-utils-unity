@@ -1,8 +1,7 @@
 ﻿using PrimeTween;
-using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace YuzuValen.DragonInBloom
+namespace YuzuValen.Utils.UI
 {
     public static class UIHelper
     {

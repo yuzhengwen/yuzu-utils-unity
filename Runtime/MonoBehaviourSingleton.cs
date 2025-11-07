@@ -3,7 +3,7 @@ using UnityEngine;
 namespace YuzuValen.Utils
 {
     public class MonoBehaviourSingleton<T> : MonoBehaviour
-        where T : Component
+        where T : MonoBehaviour
     {
         private static T _instance;
 
@@ -12,28 +12,31 @@ namespace YuzuValen.Utils
             get
             {
                 if (_instance == null)
-                {
-                    var objs = FindObjectsOfType(typeof(T)) as T[];
-                    if (objs.Length > 0)
-                        _instance = objs[0];
-                    if (objs.Length > 1)
-                    {
-                        UnityEngine.Debug.LogError("There is more than one " + typeof(T).Name + " in the scene.");
-                    }
-
-                    if (_instance == null)
-                    {
-                        GameObject obj = new GameObject();
-                        obj.hideFlags = HideFlags.HideAndDontSave;
-                        _instance = obj.AddComponent<T>();
-                    }
-                }
-
+                    _instance = FindFirstObjectByType<T>();
                 return _instance;
             }
         }
-    }
 
+        protected virtual void Awake()
+        {
+            if (_instance == null)
+            {
+                _instance = this as T;
+            }
+            else if (_instance != this)
+            {
+                Debug.LogError(
+                    $"Multiple instances of {typeof(T).Name} detected. Destroying duplicate on {gameObject.name}.");
+                Destroy(gameObject);
+            }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            if (_instance == this)
+                _instance = null;
+        }
+    }
 
     public class MonoBehaviourSingletonPersistent<T> : MonoBehaviour
         where T : Component
