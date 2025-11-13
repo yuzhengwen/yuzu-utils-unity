@@ -27,5 +27,24 @@ namespace YuzuValen.Utils
 
             return positions;
         }
+
+        public static int Round(this int value, RoundType type, int magnitudeOfTen)
+        {
+            var factor = (int)Mathf.Pow(10, magnitudeOfTen);
+            return type switch
+            {
+                RoundType.Nearest => Mathf.RoundToInt((float)value / factor) * factor,
+                RoundType.Up => Mathf.CeilToInt((float)value / factor) * factor,
+                RoundType.Down => Mathf.FloorToInt((float)value / factor) * factor,
+                _ => value
+            };
+        }
+    }
+
+    public enum RoundType
+    {
+        Nearest,
+        Up,
+        Down
     }
 }
