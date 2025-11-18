@@ -13,7 +13,7 @@ namespace YuzuValen.Utils
         private HashSet<GameObject> pooledPrefabs = new();
         private Dictionary<GameObject, ObjectPool<GameObject>> pooledObjects = new();
 
-        private void Awake()
+        protected override void Awake()
         {
             // Registers all objects in PooledPrefabsList to the cache.
             foreach (var configObject in pooledPrefabsList)

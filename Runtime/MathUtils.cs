@@ -28,16 +28,25 @@ namespace YuzuValen.Utils
             return positions;
         }
 
-        public static int Round(this int value, RoundType type, int magnitudeOfTen)
+        public static int Round(this int value, RoundType type, int magnitudeOfTen) =>
+            ((float)value).Round(type, magnitudeOfTen);
+
+        public static int Round(this float value, RoundType type, int magnitudeOfTen)
         {
-            var factor = (int)Mathf.Pow(10, magnitudeOfTen);
+            var factor = Mathf.Pow(10, magnitudeOfTen);
             return type switch
             {
-                RoundType.Nearest => Mathf.RoundToInt((float)value / factor) * factor,
-                RoundType.Up => Mathf.CeilToInt((float)value / factor) * factor,
-                RoundType.Down => Mathf.FloorToInt((float)value / factor) * factor,
-                _ => value
+                RoundType.Nearest => Mathf.RoundToInt(value / factor) * (int)factor,
+                RoundType.Up => Mathf.CeilToInt(value / factor) * (int)factor,
+                RoundType.Down => Mathf.FloorToInt(value / factor) * (int)factor,
+                _ => (int)value
             };
+        }
+
+        public static float RoundToDecimals(this float value, int decimals = 1)
+        {
+            var factor = Mathf.Pow(10, decimals);
+            return Mathf.Round(value * factor) / factor;
         }
     }
 
