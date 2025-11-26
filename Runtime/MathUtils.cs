@@ -48,6 +48,14 @@ namespace YuzuValen.Utils
             var factor = Mathf.Pow(10, decimals);
             return Mathf.Round(value * factor) / factor;
         }
+
+        /// <summary>
+        /// Remaps a value from one range to another.
+        /// </summary>
+        public static float Remap(this float value, float from1, float to1, float from2, float to2)
+        {
+            return Mathf.Lerp(from2, to2, Mathf.InverseLerp(from1, to1, value));
+        }
     }
 
     public enum RoundType
