@@ -21,10 +21,10 @@ namespace YuzuValen.Utils.Tests.EditMode
 
             // Assert
             Assert.AreEqual(2, kvList.pairs.Count);
-            Assert.AreEqual("key1", kvList.pairs[0].key);
-            Assert.AreEqual(10, kvList.pairs[0].value);
-            Assert.AreEqual("key2", kvList.pairs[1].key);
-            Assert.AreEqual(20, kvList.pairs[1].value);
+            Assert.AreEqual("key1", kvList.pairs[0].Key);
+            Assert.AreEqual(10, kvList.pairs[0].Value);
+            Assert.AreEqual("key2", kvList.pairs[1].Key);
+            Assert.AreEqual(20, kvList.pairs[1].Value);
         }
 
         [Test]
@@ -41,10 +41,10 @@ namespace YuzuValen.Utils.Tests.EditMode
 
             // Assert
             Assert.AreEqual(2, deserializedList.pairs.Count);
-            Assert.AreEqual("key1", deserializedList.pairs[0].key);
-            Assert.AreEqual(10, deserializedList.pairs[0].value);
-            Assert.AreEqual("key2", deserializedList.pairs[1].key);
-            Assert.AreEqual(20, deserializedList.pairs[1].value);
+            Assert.AreEqual("key1", deserializedList.pairs[0].Key);
+            Assert.AreEqual(10, deserializedList.pairs[0].Value);
+            Assert.AreEqual("key2", deserializedList.pairs[1].Key);
+            Assert.AreEqual(20, deserializedList.pairs[1].Value);
         }
 
         [Test]
@@ -59,8 +59,8 @@ namespace YuzuValen.Utils.Tests.EditMode
 
             // Assert
             Assert.AreEqual(1, kvList.pairs.Count);
-            Assert.AreEqual(5, kvList.pairs[0].value.x);
-            Assert.AreEqual(10, kvList.pairs[0].value.y);
+            Assert.AreEqual(5, kvList.pairs[0].Value.x);
+            Assert.AreEqual(10, kvList.pairs[0].Value.y);
         }
 
         [Test]
@@ -92,8 +92,8 @@ namespace YuzuValen.Utils.Tests.EditMode
 
             // Assert
             Assert.AreEqual(2, kvList.pairs.Count);
-            Assert.AreEqual("key1", kvList.pairs[0].key);
-            Assert.AreEqual("key3", kvList.pairs[1].key);
+            Assert.AreEqual("key1", kvList.pairs[0].Key);
+            Assert.AreEqual("key3", kvList.pairs[1].Key);
         }
     }
 }

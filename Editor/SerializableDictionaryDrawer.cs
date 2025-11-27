@@ -3,10 +3,10 @@ using UnityEditor;
 using UnityEngine;
 using YuzuValen.Utils.Collections;
 
-namespace Editor
+namespace YuzuValen.Editor
 {
-    [CustomPropertyDrawer(typeof(YuzuValen.Utils.Collections.SerializableKeyValuePair<,>))]
-    public class KeyValuePairDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(SerializableKeyValuePair<,>))]
+    public class SerializedKeyValuePairDrawer : PropertyDrawer
     {
         private readonly Color _warningColor = new Color(1f, 0.2f, 0.2f, 0.5f);
 
@@ -24,20 +24,18 @@ namespace Editor
                 return;
             }
 
-            // Check if key is valid (not default/empty)
-            bool keyIsValid = IsKeyValid(keyProperty);
+            var originalColor = GUI.backgroundColor;
 
-            // Highlight invalid keys
-            Color originalColor = GUI.backgroundColor;
-            if (!keyIsValid)
+            // Check if key is valid (not default/empty)
+            if (!IsKeyValid(keyProperty))
             {
+                // Highlight invalid keys
                 GUI.backgroundColor = _warningColor;
             }
 
             // Check if value is a complex type (has children)
-            bool valueIsComplex = valueProperty.hasChildren &&
-                                  valueProperty.propertyType == SerializedPropertyType.Generic;
-
+            var valueIsComplex = valueProperty.hasChildren &&
+                                 valueProperty.propertyType == SerializedPropertyType.Generic;
             if (valueIsComplex)
             {
                 // For complex types, use full width with foldout
@@ -48,6 +46,7 @@ namespace Editor
 
                 GUI.backgroundColor = originalColor;
 
+                // draw value below key
                 float valueY = position.y + keyHeight + EditorGUIUtility.standardVerticalSpacing;
                 float valueHeight = EditorGUI.GetPropertyHeight(valueProperty, true);
                 Rect valueRect = new Rect(position.x, valueY, position.width, valueHeight);
@@ -250,7 +249,7 @@ namespace Editor
                     var element = pairsProperty.GetArrayElementAtIndex(i);
                     var keyProperty = element.FindPropertyRelative("Key");
 
-                    if (!IsKeyValid(keyProperty))
+                    if (keyProperty != null && !IsKeyValid(keyProperty))
                     {
                         hasInvalid = true;
                     }

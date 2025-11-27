@@ -13,13 +13,13 @@ namespace YuzuValen.Utils.Collections
         }
 
         public int Count => pairs.Count;
-        public TValue this[TKey key] => pairs.Find(kvp => EqualityComparer<TKey>.Default.Equals(kvp.key, key)).value;
+        public TValue this[TKey key] => pairs.Find(kvp => EqualityComparer<TKey>.Default.Equals(kvp.Key, key)).Value;
         public void Clear() => pairs.Clear();
-        public bool ContainsKey(TKey key) => pairs.Exists(kvp => EqualityComparer<TKey>.Default.Equals(kvp.key, key));
+        public bool ContainsKey(TKey key) => pairs.Exists(kvp => EqualityComparer<TKey>.Default.Equals(kvp.Key, key));
 
         public bool Remove(TKey key)
         {
-            var kvp = pairs.Find(k => EqualityComparer<TKey>.Default.Equals(k.key, key));
+            var kvp = pairs.Find(k => EqualityComparer<TKey>.Default.Equals(k.Key, key));
             return pairs.Remove(kvp);
         }
     }

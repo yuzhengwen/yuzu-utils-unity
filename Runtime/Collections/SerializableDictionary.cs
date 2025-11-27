@@ -7,13 +7,13 @@ namespace YuzuValen.Utils.Collections
     [System.Serializable]
     public struct SerializableKeyValuePair<TKey, TValue>
     {
-        public TKey key;
-        public TValue value;
+        public TKey Key;
+        public TValue Value;
 
         public SerializableKeyValuePair(TKey key, TValue value)
         {
-            this.key = key;
-            this.value = value;
+            this.Key = key;
+            this.Value = value;
         }
     }
 
@@ -65,7 +65,7 @@ namespace YuzuValen.Utils.Collections
             for (int i = 0; i < pairs.Count; i++)
             {
                 var pair = pairs[i];
-                this[pair.key] = pair.value;
+                this[pair.Key] = pair.Value;
             }
         }
     }
