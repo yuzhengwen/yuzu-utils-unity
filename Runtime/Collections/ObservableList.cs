@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace YuzuValen.Utils
+namespace YuzuValen.Utils.Collections
 {
     [System.Serializable]
     public class ObservableList<T>

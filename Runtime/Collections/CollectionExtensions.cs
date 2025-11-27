@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace YuzuValen.Utils
+namespace YuzuValen.Utils.Collections
 {
     public static class CollectionExtensions
     {

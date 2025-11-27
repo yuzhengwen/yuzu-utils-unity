@@ -1,6 +1,6 @@
 {
     "name": "YuzuUtils.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "YuzuValen.Editor",
     "references": [
         "GUID:46d5a38d06c54a34982dd8621a094600",
         "GUID:343deaaf83e0cee4ca978e7df0b80d21"
