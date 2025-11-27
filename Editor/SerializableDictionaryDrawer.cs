@@ -14,6 +14,7 @@ namespace YuzuValen.Editor
         {
             EditorGUI.BeginProperty(position, label, property);
 
+            // note that these are hardcoded struct field names
             var keyProperty = property.FindPropertyRelative("Key");
             var valueProperty = property.FindPropertyRelative("Value");
 
@@ -137,8 +138,8 @@ namespace YuzuValen.Editor
                 // Count valid and invalid entries
                 int validCount = 0;
                 int invalidCount = 0;
-                List<string> duplicateKeys = new List<string>();
-                HashSet<string> seenKeys = new HashSet<string>();
+                HashSet<string> duplicateKeys = new();
+                HashSet<string> seenKeys = new();
 
                 for (int i = 0; i < pairsProperty.arraySize; i++)
                 {
@@ -150,10 +151,7 @@ namespace YuzuValen.Editor
                         string keyString = GetKeyAsString(keyProperty);
                         if (!seenKeys.Add(keyString))
                         {
-                            if (!duplicateKeys.Contains(keyString))
-                            {
-                                duplicateKeys.Add(keyString);
-                            }
+                            duplicateKeys.Add(keyString);
                         }
 
                         validCount++;
